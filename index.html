@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glam&Go - Home Salon Booking</title>
+    <style>
+        :root {
+            --purple-primary: #8B5CF6;
+            --purple-dark: #6B21A8;
+            --purple-light: #C4B5FD;
+            --white: #FFFFFF;
+            --gray: #6B7280;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arial', sans-serif; background: linear-gradient(135deg, var(--purple-primary), var(--purple-dark)); color: var(--white); min-height: 100vh; }
+        header { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 1rem 2rem; position: fixed; width: 100%; top: 0; z-index: 100; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { color: var(--white); text-decoration: none; font-weight: bold; transition: color 0.3s; }
+        nav a:hover { color: var(--purple-light); }
+        .hero { text-align: center; padding: 150px 2rem 100px; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin: 0 auto 2rem; }
+        .cta { background: var(--white); color: var(--purple-dark); padding: 1rem 2rem; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: transform 0.3s; }
+        .cta:hover { transform: scale(1.05); }
+        .services { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .services h2 { text-align: center; margin-bottom: 3rem; font-size: 2.5rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; text-align: center; transition: transform 0.3s; }
+        .card:hover { transform: translateY(-10px); }
+        .card h3 { color: var(--purple-light); margin-bottom: 1rem; }
+        .book-form { max-width: 500px; margin: 2rem auto; background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 20px; }
+        input, select, button { width: 100%; padding: 1rem; margin-bottom: 1rem; border: none; border-radius: 10px; font-size: 1rem; }
+        button { background: var(--purple-light); color: var(--purple-dark); font-weight: bold; cursor: pointer; }
+        footer { text-align: center; padding: 2rem; background: rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h2>Glam&Go</h2>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#book">Book Now</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="home" class="hero">
+        <h1>Beauty at Your Doorstep</h1>
+        <p>Book top salon professionals for hair, makeup, nails & more. Fast, safe, and hassle-free home service in Hyderabad.</p>
+        <button class="cta" onclick="scrollToBook()">Book Now</button>
+    </section>
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Hair Styling</h3>
+                <p>Cuts, colors, blowouts & more from certified stylists.</p>
+            </div>
+            <div class="card">
+                <h3>Makeup</h3>
+                <p>Bridal, party or everyday looks by pro artists.</p>
+            </div>
+            <div class="card">
+                <h3>Nails & Spa</h3>
+                <p>Manicures, pedicures, massages at home.</p>
+            </div>
+        </div>
+    </section>
+    <section id="book" class="services">
+        <h2>Quick Booking</h2>
+        <form class="book-form" onsubmit="bookAppointment(event)">
+            <input type="text" placeholder="Your Name" required>
+            <input type="tel" placeholder="Phone" required>
+            <select required>
+                <option>Select Service</option>
+                <option>Hair Cut</option>
+                <option>Makeup</option>
+                <option>Nails</option>
+            </select>
+            <input type="date" required>
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </section>
+    <footer id="contact">
+        <p>&copy; 2026 Glam&Go. Serving Hyderabad. Contact: +91-XXXXXXXXXX</p>
+    </footer>
+    <script>
+        function scrollToBook() { document.getElementById('book').scrollIntoView({behavior: 'smooth'}); }
+        function bookAppointment(e) { e.preventDefault(); alert('Booking confirmed! A pro will call you shortly.'); }
+    </script>
+</body>
+</html>
